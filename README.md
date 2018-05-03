@@ -22,7 +22,7 @@ Terminale aşağıdaki komutu girin :arrow_heading_down:
   bash <(curl https://raw.githubusercontent.com/AUCyberClub/axion/master/Installiation.sh)
 ```
 
-Manuel kurulum için :arrow_right: [click here!](https://github.com/AUCyberClub/axion/wiki/(ENG)-Installiation)
+Manuel kurulum için :arrow_right: [buraya tıklayın!](https://github.com/AUCyberClub/axion/wiki/(ENG)-Installiation)
 
 ## :video_game: Kullanım
 
@@ -37,7 +37,7 @@ Manuel kurulum için :arrow_right: [click here!](https://github.com/AUCyberClub/
   python2 axion.py
 ```
 
-Daha detaylı manuel kullanım için: :arrow_right: [click here!](https://github.com/AUCyberClub/axion/wiki)
+Daha detaylı manuel kullanım için: :arrow_right: [buraya tıklayın!](https://github.com/AUCyberClub/axion/wiki)
 
 ## :camera: Screenshots
 
