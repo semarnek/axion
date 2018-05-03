@@ -49,17 +49,17 @@ def bin_hex_dec_ascii():
     while True:
         print (logo)
 
-        colorprint("info", "You can do convertion between decimal, hexadecimal, binary and ASCII in here.")
-        colorprint("info", "1-->Hexadecimal to ASCII")
-        colorprint("info", "2-->Binary to ASCII")
-        colorprint("info", "3-->Decimal to ASCII")
-        colorprint("info", "4-->Hexadecimal to Decimal")
-        colorprint("info", "5-->Decimal to Binary")
-        colorprint("info", "6-->Binary to Decimal")
-        colorprint("info", "7-->Binary to Hexadecimal")
-        colorprint("info", "8-->Decimal to Hexadecimal")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "Bu bölümde decimal, hexadecimal, binary ve ascii'yi birbirlerine çevirebilirsiniz.")
+        colorprint("info", "1-->Hexadecimal'den Ascii'ye çevir")
+        colorprint("info", "2-->Binary'den Ascii'ye çevir")
+        colorprint("info", "3-->Decimal'den Ascii'ye çevir")
+        colorprint("info", "4-->Hexadecimal'den Decimal'e çevir")
+        colorprint("info", "5-->Decimal'den Binary'ye çevir")
+        colorprint("info", "6-->Binary'den Decimal'e çevir")
+        colorprint("info", "7-->Binary'den Hexadecimal'e çevir")
+        colorprint("info", "8-->Decimal'den Hexadecimal'e çevir")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         choice = input(
             "Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto/bin_hex_dec_ascii" + Style.RESET_ALL + ")\n-->")
@@ -69,7 +69,7 @@ def bin_hex_dec_ascii():
         elif choice == 0:
             sys.exit()
 
-        colorprint("info", "Please enter the number.")
+        colorprint("info", "Lütfen sayıyı girin:")
 
         number = raw_input(
             "Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto/bin_hex_dec_ascii" + Style.RESET_ALL + ")\n-->")
@@ -92,13 +92,13 @@ def bin_hex_dec_ascii():
         elif choice == 8:
             return_msg = dec_to_hex(number)
         else:
-            colorprint("fatal", "Wrong input, please try again...")
+            colorprint("fatal", "Yanlış girdi tekrar deneyin...")
             continue
 
-        colorprint("success", "Conversion done.")
-        print ("Output:\n--> %s" % return_msg)
+        colorprint("success", "Dönüşüm tamamlandı.")
+        print ("Mesaj:\n--> %s" % return_msg)
 
-        raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+        raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
 if __name__ == "__main__":
     bin_hex_dec_ascii()

@@ -50,10 +50,10 @@ def rot13_caesar():
     while True:
         print (logo)
 
-        colorprint("info", "Here, you can decrypt Caesar and ROT13 encrypted messages.")
-        colorprint("info", "Enter ciphertext:")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "Bu bölümde Sezar ve Rot şifreli mesajları çözebilirsiniz.")
+        colorprint("info", "Lütfen şifreli mesajı girin:")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         caesar_msg = raw_input(
             "Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto/rot13_caesar" + Style.RESET_ALL + ")\n-->")
@@ -63,12 +63,12 @@ def rot13_caesar():
         elif caesar_msg == "0":
             sys.exit()
         else:
-            colorprint("success", "All cases are below:")
+            colorprint("success", "Tüm ihtimaller aşağıdadır:")
             for i in range(1,26):
                 rot_msg = rot_to_text(i,caesar_msg)
                 colorprint("info", "ROT" + str(i) + ":  " + rot_msg)
 
-        raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+        raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
 if __name__ == "__main__":
     rot13_caesar()

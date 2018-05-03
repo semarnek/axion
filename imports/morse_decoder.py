@@ -62,11 +62,11 @@ def morse_decoder():
     check_call(["clear"])
     while True:
         print (logo)
-        colorprint("info", "In this section, you can decode Morse encoded messages.")
-        colorprint("info", "Enter the Morse code:")
-        colorprint("warn", "i.e -> .-- . / .-.. --- ...- . / .- ..- -.-. -.-.   ")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "Bu bölümde şifreli morse mesajlarını decode edebilirsiniz.")
+        colorprint("info", "Lütfen şifreli mesajı girin:")
+        colorprint("warn", "Örnek mesaj formatı -> .-- . / .-.. --- ...- . / .- ..- -.-. -.-.   ")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         morse_msg = raw_input(
             "Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto/morse_decoder" + Style.RESET_ALL + ")\n-->")
@@ -77,10 +77,10 @@ def morse_decoder():
             sys.exit()
         else:
             text_msg = decode_morse(morse_msg)
-            colorprint("success", "Your message decoded.")
-            print ("Message:\n--> %s" %text_msg)
+            colorprint("success", "Mesajınız dönüştürüldü.")
+            print ("Mesaj:\n--> %s" %text_msg)
 
-        raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+        raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
 if __name__ == "__main__":
     morse_decoder()

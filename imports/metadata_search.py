@@ -35,8 +35,8 @@ def exiftool_out(path):
 
 def searcher(path):
 
-    print("Enter a keyword which may be found in the flag.")
-    print("e.g : Strings/characters like 'CTF' or '_{' can be used to search for a 'CTF_{flag_is_here}' flag format.")
+    print("Aranacak flag'ın içerdiği bir keyword giriniz.")
+    print("Örnek : CTF_{flag_burda} gibi bir flag için 'CTF' ya da '_{' gibi keywordler uygundur.")
     
     flag_keyword = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/metadata_search"+Style.RESET_ALL+")\n-->")
 
@@ -49,31 +49,31 @@ def searcher(path):
     if s_out+e_out:
         colorprint("success", s_out+e_out)
     else:
-        colorprint("fatal", "It seems there is no word like that in meta-data or strings output :(")
+        colorprint("fatal", "Keyword bulunamadı. :(")
 
 def metadata_search():
 
     check_call(["clear"])
     while True:
         print (logo)
-        colorprint("info", "'exiftool' and 'strings' will be used to search for a string you specify.")
+        colorprint("info", "Belirlediğiniz keywordü bulmak için 'exiftool' ve 'strings' kullanılacaktır.")
         
         path = config_get('paths', 'path')
         if path == '':
-            colorprint("fatal", "\n\tOh, it seems there is no path stored before :(")
-            colorprint("fatal","\n\tPlease specify one to continue:\n")
+            colorprint("fatal", "\n\tKaydedilmiş dosya yolu bulunamadı. :(")
+            colorprint("fatal","\n\tDevam etmek için dosyanın yolunu girin:\n")
             
             path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/metadata_search"+Style.RESET_ALL+")\n-->")
 
             config_set('paths', 'path', path)
-            colorprint("info", "\nWell, we'll store this path for next operations...\n")
+            colorprint("info", "\nDosya yolunu daha sonraki işlemleriniz için saklayacağız...\n")
 
         
         colorprint("success", "\n[*] Using "+path+"\n")
-        choice = raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue or 'p' to new path..." + Style.RESET_ALL).lower()
+        choice = raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a, yeni dosya yolu girmek için 'p'ye basın..." + Style.RESET_ALL).lower()
 
         if choice == 'p':
-            path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/hash_brute"+Style.RESET_ALL+")\n--> New path: ")
+            path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/hash_brute"+Style.RESET_ALL+")\n--> Yeni dosya yolu: ")
             config_set('paths', 'path', path)
             colorprint("success", "\n[*] Using "+path+"\n")
 
@@ -81,31 +81,31 @@ def metadata_search():
         (out,err) = std.communicate()
         if out.find("No such file or directory") == -1:
 
-            colorprint("info", "1-->Search for a specific keyword in 'exiftool' and 'strings' output")
-            colorprint("info", "2-->Print meta-data information")
-            colorprint("info", "3-->Print 'strings' output")
-            colorprint("warn", "9-->Go back to the top menu")
-            colorprint("fatal", "0-->Quit")
+            colorprint("info", "1-->'exiftool' ve 'strings' çıktısında belirli bir keyword için arama yap")
+            colorprint("info", "2-->MetaData'yı göster")
+            colorprint("info", "3-->Strings çıktısını göster")
+            colorprint("warn", "9-->Üst menüye dön")
+            colorprint("fatal", "0-->Çık")
             choose = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/metadata_search"+Style.RESET_ALL+")\n-->").lower()
             if choose == "1":
                 searcher(path)
-                raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+                raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
             elif choose == "2":
                 colorprint("warn", exiftool_out(path))
-                raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+                raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
             elif choose == "3":
                 colorprint("warn", strings_out(path))
-                raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+                raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
             elif choose == "9":
                 return
             elif choose == "0":
                 sys.exit()
             else:
-                colorprint("fatal", "Wrong input.\nResetting...\n")
-                raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+                colorprint("fatal", "Yanlış girdi.\nTekrar başlatılıyor...\n")
+                raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
         else:
-            colorprint("fatal", "There is no such file.\nRestarting...\n")
-            raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+            colorprint("fatal", "Böyle bir dosya bulunamadı.\nTekrar başlatılıyor...\n")
+            raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
             break
                  
 if __name__ == "__main__":

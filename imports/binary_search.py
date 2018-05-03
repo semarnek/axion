@@ -29,26 +29,26 @@ def binary_search():
     check_call(["clear"])
     while True:
         print (logo)
-        colorprint("info", "The 'binwalk' tool will be used for binary searching.")
-        colorprint("info", "If a file signature match is found in the search, it will be extracted with the 'foremost' tool.")
+        colorprint("info", "Binary taraması için 'binwalk' tool'u kullanılacaktır.")
+        colorprint("info", "Taramada bulunan dosyalar 'foremost' tool'u ile çıkartılacaktır.")
 
         path = config_get('paths', 'path')
         if path == '':
-            colorprint("fatal", "\n\tOh, it seems there is no path stored before :(")
-            colorprint("fatal","\n\tPlease specify one to continue:\n")
+            colorprint("fatal", "\n\tKaydedilmiş dosya yolu bulunamadı. :(")
+            colorprint("fatal","\n\tDevam etmek için dosyanın yolunu girin:\n")
             
             path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/binary_search"+Style.RESET_ALL+")\n-->")
 
             config_set('paths', 'path', path)
-            colorprint("info", "\nWell, we'll store this path for next operations...\n")
+            colorprint("info", "\nDosya yolunu daha sonraki işlemleriniz için saklayacağız...\n")
 
-        colorprint("success", "\n[*] Using "+path+"\n")
-        choice = raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue or 'p' to new path..." + Style.RESET_ALL).lower()
+        colorprint("success", "\n[*] "+path+" kullanılıyor\n")
+        choice = raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a, yeni dosya yolu girmek için 'p'ye basın..." + Style.RESET_ALL).lower()
 
         if choice == 'p':
-            path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/binary_search"+Style.RESET_ALL+")\n--> New path: ")
+            path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/binary_search"+Style.RESET_ALL+")\n--> Yeni dosya yolu: ")
             config_set('paths', 'path', path)
-            colorprint("success", "\n[*] Using "+path+"\n")
+            colorprint("success", "\n[*] "+path+" kullanılıyor\n")
 
         std = Popen(["binwalk",path], stdout=PIPE,stderr=PIPE)
         (out,err) = std.communicate()
@@ -56,9 +56,9 @@ def binary_search():
         if not err:
             print(out)
 
-            print("Extract embedded files? Y/N\n")
-            colorprint("warn", "9-->Go back to the top menu")
-            colorprint("fatal", "0-->Quit")
+            print("Gömülü dosyaları çıkartmak ister misiniz? E/H\n")
+            colorprint("warn", "9-->Üst menüye dön")
+            colorprint("fatal", "0-->Çık")
 
             extract_choice = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/binary_search"+Style.RESET_ALL+")\n-->").lower()
 
@@ -68,9 +68,9 @@ def binary_search():
                 sys.exit()
             elif extract_choice == "y":
                 while True:
-                    print("\nSpecify the output path:")
-                    colorprint("warn", "Abort -> 9")
-                    colorprint("fatal", "Quit -> 0")
+                    print("\nLütfen çıktı klasörü yolunu belirtin:")
+                    colorprint("warn", "İşlemi iptal et -> 9")
+                    colorprint("fatal", "Çık -> 0")
 
                     out_path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/binary_search"+Style.RESET_ALL+")\n--> Output path: ")
 
@@ -84,18 +84,18 @@ def binary_search():
 
                     if out.find("ERROR") == -1:
                         if out_path == '':
-                            colorprint("success", "Found files are written to the 'output/'\n")
+                            colorprint("success", "Bulunan dosyalar 'output/' dizinine yazılıyor...\n")
                         else:
-                            colorprint("success", "Found files are written to the " + out_path + ".\n")
-                        raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+                            colorprint("success", "Bulunan dosyalar " + out_path + "dizinine yazılıyor...\n")
+                        raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
                         break
                     else:
-                        colorprint("fatal", "The file already exists in the output path you specify, try another one.")
-                        raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+                        colorprint("fatal", "Girdiğiniz çıktı yolunda dosya zaten mevcut. Başka bir yol belirtin.")
+                        raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
         else:
-            colorprint("fatal", "No such file was found.\nResetting...\n")
-            raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)  
+            colorprint("fatal", "Böyle bir dosya bulunamadı.\nTekrar başlatılıyor...\n")
+            raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)  
                     
 if __name__ == "__main__":
     binary_search()

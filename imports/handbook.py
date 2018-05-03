@@ -29,12 +29,12 @@ def handbook():
 
         check_call(["clear"])
         print (logo)
-        colorprint("info", "You can find lot of information about CTFs here.")
-        colorprint("info", "Please select a topic.")
-        colorprint("info", "1-->Reverse Engineering")
-        colorprint("info", "2-->Cryptography")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "Burada CTF'ler hakkında bilgi bulabilirsiniz.")
+        colorprint("info", "Lütfen bir konu seçiniz:")
+        colorprint("info", "1-->Tersine Mühendislik")
+        colorprint("info", "2-->Kriptografi")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         choice = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/handbook"+Style.RESET_ALL+")\n-->")
 
@@ -66,7 +66,7 @@ def handbook():
             finally:
                 os.dup2(savout, 1)
 
-        raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+        raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
 if __name__ == "__main__":
     handbook()

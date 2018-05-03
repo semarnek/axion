@@ -30,28 +30,28 @@ def qr_decoder():
     while True:
         check_call(["clear"])
         print (logo)
-        colorprint("info", "The 'zbarimg' command will be used to decode QRCode")
+        colorprint("info", "QR kod okumak için 'zbarimg' komutu kullanılacaktır.")
 
         path = config_get('paths', 'path')
         if path == '':
-            colorprint("fatal", "\n\tOh, it seems there is no path stored before :(")
-            colorprint("fatal", "\n\tPlease specify one to continue:\n")
+            colorprint("fatal", "\n\tKaydedilmiş dosya yolu bulunamadı. :(")
+            colorprint("fatal", "\n\tDevam etmek için dosyanın yolunu girin:\n")
 
             path = raw_input(
                 "Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto/qr_decoder" + Style.RESET_ALL + ")\n-->")
 
             config_set('paths', 'path', path)
-            colorprint("info", "\nWell, we'll store this path for next operations...\n")
+            colorprint("info", "\nDosya yolunu daha sonraki işlemleriniz için saklayacağız...\n")
 
-        colorprint("success", "\n[*] Using " + path + "\n")
+        colorprint("success", "\n[*] " + path + " kullanılıyor\n")
         choice = raw_input(
-            Style.DIM + Fore.WHITE + "Press Enter to continue or 'p' to new path..." + Style.RESET_ALL).lower()
+            Style.DIM + Fore.WHITE + "Devam etmek için Enter'a, yeni dosya yolu girmek için 'p'ye basın..." + Style.RESET_ALL).lower()
 
         if choice == 'p':
             path = raw_input(
-                "Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto/qr_decoder" + Style.RESET_ALL + ")\n--> New path: ")
+                "Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto/qr_decoder" + Style.RESET_ALL + ")\n--> Yeni dosya yolu: ")
             config_set('paths', 'path', path)
-            colorprint("success", "\n[*] Using " + path + "\n")
+            colorprint("success", "\n[*] " + path + " kullanılıyor\n")
 
         std = Popen(["zbarimg", path], stdout=PIPE, stderr=PIPE)
         (out, err) = std.communicate()
@@ -64,8 +64,8 @@ def qr_decoder():
         if err:
             colorprint("fatal", err)
 
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         choice = raw_input(
             "Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto/qr_decoder" + Style.RESET_ALL + ")\n-->").lower()

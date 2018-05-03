@@ -29,35 +29,35 @@ def volatility_screenshot():
 
         check_call(["clear"])
         print (logo)
-        colorprint("info","'volatility' will be used to create a screenshot(capable of illustrating window positions).")
+        colorprint("info","RAM dump screenshot çekmek için 'volatility' tool'u kullanılacaktır.")
 
         path = config_get('paths', 'path')
         if path == '':
-            colorprint("fatal", "\n\tOh, it seems there is no path stored before :(")
-            colorprint("fatal","\n\tPlease specify one to continue:\n")
+            colorprint("fatal", "\n\tKaydedilmiş dosya yolu bulunamadı. :(")
+            colorprint("fatal","\n\tDevam etmek için dosyanın yolunu girin:\n")
             
             path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/ram_analysis/volatility_screenshot"+Style.RESET_ALL+")\n-->")
 
             config_set('paths', 'path', path)
-            colorprint("info", "\nWell, we'll store this path for next operations...\n")
+            colorprint("info", "\nDosya yolunu daha sonraki işlemleriniz için saklayacağız...\n")
 
-        colorprint("success", "\n[*] Using "+path+"\n")
+        colorprint("success", "\n[*] "+path+" kullanılıyor\n")
 
-        colorprint("warn","9-->Go back to the top menu")
-        colorprint("fatal","0-->Quit")
+        colorprint("warn","9-->Üst menüye dön")
+        colorprint("fatal","0-->Çık")
 
-        choice = raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue or 'p' to new path..." + Style.RESET_ALL).lower()
+        choice = raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a, yeni dosya yolu girmek için 'p'ye basın..." + Style.RESET_ALL).lower()
 
         if choice == "9":
             return
         elif choice == "0":
             sys.exit()
         if choice == 'p':
-            path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/ram_analysis/volatility_screenshot"+Style.RESET_ALL+")\n--> New path: ")
+            path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/ram_analysis/volatility_screenshot"+Style.RESET_ALL+")\n--> Yeni dosya yolu: ")
             config_set('paths', 'path', path)
-            colorprint("success", "\n[*] Using "+path+"\n")
+            colorprint("success", "\n[*] "+path+" kullanılıyor\n")
 
-        colorprint("warn", "Please wait...")
+        colorprint("warn", "Lütfen bekleyin...")
 
         std = Popen("volatility -f " + path + " imageinfo | grep Suggested | cut -d ',' -f1 | cut -d ':' -f2", shell=True, stdout=PIPE,stderr=PIPE)
         (out, err) = std.communicate()
@@ -70,7 +70,7 @@ def volatility_screenshot():
 
             if out.find("No") != -1:
                 colorprint("warn", out)
-                colorprint("fatal", "This file is not a RAM Dump file Restarting...")
+                colorprint("fatal", "Dosya, RAM Dump dosyası değil. Yeniden başlatılıyor...")
 
             else:
                 std = Popen("volatility -f " + path + " --profile" + out + " screenshot -D screenshots/", shell=True, stdout=PIPE,stderr=PIPE)
@@ -78,7 +78,7 @@ def volatility_screenshot():
 
                 colorprint("success", out)
 
-        raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+        raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
 if __name__ == "__main__":
     volatility_screenshot()

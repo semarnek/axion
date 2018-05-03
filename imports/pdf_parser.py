@@ -29,10 +29,10 @@ def func(path):
         os.system('clear')
         print (logo)
 
-        colorprint("info", "1-->Information about PDF content")
-        colorprint("info", "2-->Look for embedded file info")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal","0-->Quit")
+        colorprint("info", "1-->PDF'in içeriği hakkında bilgi")
+        colorprint("info", "2-->PDF'in içine gömülü dosya hakkında bilgi")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal","0-->Çık")
 
         choice = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/pdf_parser"+Style.RESET_ALL+")-->")
         
@@ -50,7 +50,7 @@ def func(path):
             if err:
                 colorprint("fatal", err)
 
-            raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+            raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
         elif choice == "2":
             std = Popen(["python imports/pdf-parser.py -s Embeddedfile --raw --filter "+path+" | grep PDF"], stdout=PIPE,stderr=PIPE,shell=True)
@@ -61,9 +61,9 @@ def func(path):
             elif err:
                 colorprint("fatal", err)
             else:
-                colorprint("warn", "\n\tEmbedded file not found.\n")
+                colorprint("warn", "\n\tGömülü dosya bulunamadı.\n")
 
-            raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+            raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
 def pdf_parser():
     while True:
@@ -72,29 +72,29 @@ def pdf_parser():
 
         path = config_get('paths', 'path')
         if path == '':
-            colorprint("fatal", "\n\tOh, it seems there is no path stored before :(")
-            colorprint("fatal","\n\tPlease specify one to continue:\n")
+            colorprint("fatal", "\n\tKaydedilmiş dosya yolu bulunamadı. :(")
+            colorprint("fatal","\n\tDevam etmek için dosyanın yolunu girin:\n")
             
             path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/find_file_ext"+Style.RESET_ALL+")\n-->")
 
             config_set('paths', 'path', path)
-            colorprint("info", "\nWell, we'll store this path for next operations...\n")
+            colorprint("info", "\nDosya yolunu daha sonraki işlemleriniz için saklayacağız...\n")
 
-        colorprint("success", "\n[*] Using "+path+"\n")
+        colorprint("success", "\n[*] "+path+" kullanılıyor\n")
         
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal","0-->Quit")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal","0-->Çık")
 
-        choice = raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue or 'p' to new path..." + Style.RESET_ALL).lower()
+        choice = raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a, yeni dosya yolu girmek için 'p'ye basın..." + Style.RESET_ALL).lower()
 
         if choice == "9":
             return
         elif choice == "0":
             sys.exit()
         if choice == 'p':
-            path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/hash_brute"+Style.RESET_ALL+")\n--> New path: ")
+            path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/hash_brute"+Style.RESET_ALL+")\n--> Yeni dosya yolu: ")
             config_set('paths', 'path', path)
-            colorprint("success", "\n[*] Using "+path+"\n")
+            colorprint("success", "\n[*] "+path+" kullanılıyor\n")
 
         std = Popen(["python", "imports/pdf-parser.py", path], stdout=PIPE,stderr=PIPE)
         (out,err) = std.communicate()
@@ -102,7 +102,7 @@ def pdf_parser():
         if out.find("No such file or directory") == -1:
             func(path)
         else:
-            colorprint("fatal", "There is no such file.\nRestarting...\n")
+            colorprint("fatal", "Böyle bir dosya bulunamadı.\nTekrar başlatılıyor...\n")
 
 if __name__ == "__main__":
     pdf_parser()

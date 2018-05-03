@@ -32,10 +32,10 @@ def base64_decoder():
     check_call(["clear"])
     while True:
         print (logo)
-        colorprint("info", "In this section you can decode Base64-encoded strings.")
-        colorprint("info", "Please input ciphertext:")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "Bu bölümde base64 ile encode edilmiş mesajları çözebilirsiniz.")
+        colorprint("info", "Lütfen şifreli mesajı girin:")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         base64_msg = raw_input(
             "Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto/base64_decoder" + Style.RESET_ALL + ")\n-->")
@@ -48,10 +48,10 @@ def base64_decoder():
             base64_msg = base64_msg.replace(" ", "")
             text_msg = decode_base64(base64_msg)
 
-            colorprint("success","Your message decoded.")
-            print ("Plaintext:\n--> %s" % text_msg)
+            colorprint("success","Mesajınız dönüştürüldü")
+            print ("Mesaj:\n--> %s" % text_msg)
 
-        raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+        raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
 if __name__ == "__main__":
     base64_decoder()

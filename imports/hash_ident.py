@@ -26,10 +26,10 @@ def hash_ident():
     check_call(["clear"])
     while True:
         print (logo)
-        colorprint("info", "'hashid' will be used to identify hash.")
-        colorprint("info", "Waiting for hash value...")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "Hash tanımlaması için 'hashid' kullanılacaktır.")
+        colorprint("info", "Hash'i girin lütfen...")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         raw_hash = raw_input("Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/file_analysis/hash_ident" + Style.RESET_ALL + ")\n-->")
 
@@ -45,7 +45,7 @@ def hash_ident():
             else:
                 colorprint("fatal", out)
 
-        raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+        raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
 if __name__ == "__main__":
     hash_ident()

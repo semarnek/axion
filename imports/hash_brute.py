@@ -65,43 +65,43 @@ def hash_brute():
     while True:
         print (logo)
 
-        colorprint("info", "Here, you can try to crack hashes with the wordlists you want.")
-        colorprint("info", "'JohnTheRipper' will be used.")
-        colorprint("info", "Also specified path will be used as text file containing the hash.")
+        colorprint("info", "Bu bölümde belirlediğiniz wordlistler ile hash kırabilirsiniz.")
+        colorprint("info", "Bu iş için 'JohnTheRipper' kullanılacaktır.")
+        colorprint("info", "Belirtilen dosya yolu, hash'in bulunduğu dosya için kullanılacaktır.")
         
         path = config_get('paths', 'path')
 
         if path == '':
-            colorprint("fatal", "\n\tOh, it seems there is no path stored before :(")
-            colorprint("fatal","\n\tPlease specify one to continue:\n")
+            colorprint("fatal", "\n\tKaydedilmiş dosya yolu bulunamadı :(")
+            colorprint("fatal","\n\tDevam etmek için dosyanın yolunu girin:\n")
             
             path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/hash_brute"+Style.RESET_ALL+")\n-->")
 
             config_set('paths', 'path', path)
-            colorprint("info", "\nWell, we'll store this path for next operations...\n")
+            colorprint("info", "\nDosya yolunu daha sonraki işlemleriniz için saklayacağız...\n")
 
         colorprint("success", "\n[*] Using "+path+"\n")
-        choice = raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue or 'p' to new path..." + Style.RESET_ALL).lower()
+        choice = raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a, yeni dosya yolu girmek için 'p'ye basın..." + Style.RESET_ALL).lower()
 
         if choice == 'p':
-            path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/hash_brute"+Style.RESET_ALL+")\n--> New path: ")
+            path = raw_input("Axion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/file_analysis/hash_brute"+Style.RESET_ALL+")\n--> Yeni dosya yolu: ")
             config_set('paths', 'path', path)
-            colorprint("success", "\n[*] Using "+path+"\n")
+            colorprint("success", "\n[*] "+path+" kullanılıyor \n")
 
-        colorprint("info", "If you have a custom wordlist, please enter the path.")
-        colorprint("warn", "Leave Empty-->Use default wordlist for JohnTheRipper.")
+        colorprint("info", "Eğer özel bir wordlist'iniz varsa lütfen yolunu girin.")
+        colorprint("warn", "Boş bırak-->JohnTheRipper'ın hazır wordlist'ini kullan.")
 
         wordlist_path = raw_input("Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/file_analysis/hash_brute" + Style.RESET_ALL + ")-->")
 
-        colorprint("info", "Do you want to enter a format parameter?")
-        colorprint("warn", "1          -->List all formats for hashes.")
-        colorprint("warn", "Leave Empty-->Use default format detected by John.")
+        colorprint("info", "Format parametresi girmek istiyor msuunuz?")
+        colorprint("warn", "1          -->Tüm hash formatlarını listele")
+        colorprint("warn", "Boş bırak  -->John tarafından belirlenen varsayılan formatı kullan")
 
         format = raw_input("Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/file_analysis/hash_brute" + Style.RESET_ALL + ")-->")
 
         if format == "1":
             colorprint("warn",format_list)
-            raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+            raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
             continue
 
         if wordlist_path == "":
@@ -124,10 +124,10 @@ def hash_brute():
         if out:
             colorprint("success", out)
 
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
         
-        choice = raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+        choice = raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
         if choice == "9":
             return

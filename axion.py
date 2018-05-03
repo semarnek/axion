@@ -149,10 +149,10 @@ def ram():
         print("Options:")
         colorprint("info", "1-->Ram dump işletim sistemi bul")
         colorprint("info", "2-->Ram dump notdefteri oku")
-        colorprint("info", "3-->İşlem listesini göster")
+        colorprint("info", "3-->Ram dump process listele")
         colorprint("info", "4-->Ram dump screenshot çek")
-        colorprint("info", "5-->Açık olan CMD'leri oku")
-        colorprint("info", "6-->Internet Explorer geçmişini görüntüle")
+        colorprint("info", "5-->Ram dump CMD komut görüntüle")
+        colorprint("info", "6-->Ram dump Internet Explorer geçmişi görüntüle")
         colorprint("warn", "9-->Üst menüye dön")
         colorprint("fatal", "0-->Çık")
 

@@ -33,10 +33,10 @@ def xor_decoder():
     check_call(["clear"])
     while True:
         print (logo)
-        colorprint("info", "In this section you can decrypt XOR-ed messages.")
-        colorprint("info", "Enter the cipher:")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "Bu bölümde XORla encode edilmiş mesajları çözebilirsiniz.")
+        colorprint("info", "Lütfen şifreli mesajı girin:")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         xor_msg = raw_input(
             "Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto/xor_decoder" + Style.RESET_ALL + ")\n-->")
@@ -47,10 +47,10 @@ def xor_decoder():
             sys.exit()
         else:
             text_msg = decode_xor(xor_msg)
-            colorprint("success","Your message decrypted.")
-            print ("Plaintext:\n--> %s" % text_msg)
+            colorprint("success","Mesajınız dönüştürüldü.")
+            print ("Mesaj:\n--> %s" % text_msg)
 
-        raw_input(Style.DIM + Fore.WHITE + "Press Enter to continue..." + Style.RESET_ALL)
+        raw_input(Style.DIM + Fore.WHITE + "Devam etmek için Enter'a basın..." + Style.RESET_ALL)
 
 if __name__ == "__main__":
     xor_decoder()
