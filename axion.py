@@ -63,7 +63,7 @@ def file_analysis():
         os.system('clear')
         print (logo)
 
-        print("Options:")
+        print("Seçenekler:")
         colorprint("info", "1-->Dosya türünü bul")
         colorprint("info", "2-->Dosyanın içinde gizlenmiş dosyaları ara")
         colorprint("info", "3-->Dosyanın MetaData'sında ve binary'sinde arama yap")
@@ -94,7 +94,7 @@ def crypto():
         os.system('clear')
         print (logo)
 
-        print("Options:")
+        print("Seçenekler:")
         colorprint("info", "1-->Elimdeki string hash olabilir mi türü nedir?")
         colorprint("info", "2-->Zip, Rar, TrueCrypt kaba kuvvet saldırısı")
         colorprint("info", "3-->Hash kaba kuvvet saldırısı")
@@ -146,7 +146,7 @@ def ram():
         os.system('clear')
         print (logo)
 
-        print("Options:")
+        print("Seçenekler:")
         colorprint("info", "1-->Ram dump işletim sistemi bul")
         colorprint("info", "2-->Ram dump notdefteri oku")
         colorprint("info", "3-->Ram dump process listele")
@@ -207,7 +207,7 @@ def main_menu():
                 /_/   \_\/_/\_\___\___/|_| \_|    /_/   \_\___/ \____\____|
                           ██------->CTF Toolkit Project<--------██
         """)
-        print("Please make a choice:")
+        print("Lütfen birini seçiniz:")
         colorprint("info", "1-->Dosya Analizi")
         colorprint("info", "2-->Kripto ve Şifreleme")
         colorprint("info", "3-->RAM Dump Analizi")
