@@ -3,41 +3,41 @@
 ![Python 2.7](https://img.shields.io/badge/Python-2.7-yellow.svg)
 ![GPL 3.0](https://img.shields.io/badge/license-GPLv3-red.svg)
 
-A simple toolkit that contains little tools and capable to control the I/Os of some useful tools to make it easier your life in CTFs. 
+Kullanışlı araçlar içeren ve CTF'lerde hayatınızı kolaylaştırmak için bu araçların I / O'larını kontrol edebilen basit bir araç seti. 
 
-## :exclamation: Requirements
+## :exclamation: Gereklilikler
 
-Supported distros are :arrow_heading_down:
+Desteklenen dağıtımlar :arrow_heading_down:
 * [Kali](https://www.kali.org/)
 * [Ubuntu](https://www.ubuntu.com/)
 * [Mint](https://linuxmint.com/)
 * [Debian](https://www.debian.org/)
 
-Supported python versions are 2.7.X
+Desteklenen python versiyonu 2.7.X
 
-## ⚙ Installation
+## ⚙ Kurulum
 
-Open the terminal and type the following command :arrow_heading_down:
+Terminale aşağıdaki komutu girin :arrow_heading_down:
 ```bash 
   bash <(curl https://raw.githubusercontent.com/AUCyberClub/axion/master/Installiation.sh)
 ```
 
-For manuel installation :arrow_right: [click here!](https://github.com/AUCyberClub/axion/wiki/(ENG)-Installiation)
+Manuel kurulum için :arrow_right: [click here!](https://github.com/AUCyberClub/axion/wiki/(ENG)-Installiation)
 
-## :video_game: Usage
+## :video_game: Kullanım
 
-* If you installed with script, open the terminal and type the following command :arrow_heading_down:
+* Script kullanarak indirdiyseniz, terminale aşağıdaki komutu girin :arrow_heading_down:
 
 ```bash
   axion
 ```
-* If you installed manually, open the terminal and type the following command :arrow_heading_down:
+* Manuel kurduysanız, terminale aşağıdaki komutu girin :arrow_heading_down:
 
 ```bash
   python2 axion.py
 ```
 
-For detailed usage manual :arrow_right: [click here!](https://github.com/AUCyberClub/axion/wiki)
+Daha detaylı manuel kullanım için: :arrow_right: [click here!](https://github.com/AUCyberClub/axion/wiki)
 
 ## :camera: Screenshots
 
@@ -45,11 +45,11 @@ For detailed usage manual :arrow_right: [click here!](https://github.com/AUCyber
 <img src="screenshots/a2.png" height ="32%" width="32%"></img> 
 <img src="screenshots/a3.png" height ="32%" width="32%"></img>
 
-## ✌️ [Authors](https://github.com/AUCyberClub/axion/graphs/contributors)
+## ✌️ [Katkıda Bulunanlar](https://github.com/AUCyberClub/axion/graphs/contributors)
 
-## :question: Questions and Contributing
+## :question: Sorular ve Katkıda Bulunma
 
-If you have any questions, ideas or whatsoever, please create new issues or send pull requests.
+Sorularınız, fikriniz varsa ya da katkıda bulunmak istiyorsanız, lütfen yeni issue açın ya da pull request gönderin.
 
 
 
