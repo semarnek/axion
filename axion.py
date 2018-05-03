@@ -64,12 +64,12 @@ def file_analysis():
         print (logo)
 
         print("Options:")
-        colorprint("info", "1-->Find file extension")
-        colorprint("info", "2-->Search for embedded files")
-        colorprint("info", "3-->Search a specific string in file's meta-data and strings")
-        colorprint("info", "4-->Parse and analyze a PDF file")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "1-->Dosya türünü bul")
+        colorprint("info", "2-->Dosyanın içinde gizlenmiş dosyaları ara")
+        colorprint("info", "3-->Dosyanın MetaData'sında ve binary'sinde arama yap")
+        colorprint("info", "4-->PDF dosyası ayrıştırıcı ve analizi")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         choice = input("Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/file_analysis" + Style.RESET_ALL + ")\n-->")
 
@@ -86,7 +86,7 @@ def file_analysis():
         elif choice == 0:
             sys.exit()
         else:
-            colorprint("fatal", "Wrong input, please try again...")
+            colorprint("fatal", "Yanlış girdi tekrar deneyin...")
 
 
 def crypto():
@@ -95,19 +95,19 @@ def crypto():
         print (logo)
 
         print("Options:")
-        colorprint("info", "1-->Identify a hash")
-        colorprint("info", "2-->Brute force attack for Zip, Rar, TrueCrypt")
-        colorprint("info", "3-->Brute force attack for raw hash")
-        colorprint("info", "4-->Vigenere decrypter")
-        colorprint("info", "5-->Morse decoder")
-        colorprint("info", "6-->Morse encoder")
-        colorprint("info", "7-->XOR decoder")
-        colorprint("info", "8-->Base64 decoder")
-        colorprint("info", "10-->Bin,Hex,Dec and ASCII transformations")
-        colorprint("info", "11-->Caesar and ROT decrypter")
-        colorprint("info", "12-->QRCode Decoder")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "1-->Elimdeki string hash olabilir mi türü nedir?")
+        colorprint("info", "2-->Zip, Rar, TrueCrypt kaba kuvvet saldırısı")
+        colorprint("info", "3-->Hash kaba kuvvet saldırısı")
+        colorprint("info", "4-->Vigenere çözücü")
+        colorprint("info", "5-->Morse çözücü")
+        colorprint("info", "6-->Morse oluşturucu")
+        colorprint("info", "7-->XOR çözücü")
+        colorprint("info", "8-->Base64 çözücü")
+        colorprint("info", "10-->Bin,Hex,Dec ve ASCII dönüştürücüler")
+        colorprint("info", "11-->Caesar ve ROT şifre çözücü")
+        colorprint("info", "12-->QRCode okuyucu")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         choice = input("Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/crypto" + Style.RESET_ALL + ")\n-->")
 
@@ -139,7 +139,7 @@ def crypto():
             sys.exit()
         else:
 
-            colorprint("fatal", "Wrong input, please try again...")
+            colorprint("fatal", "Yanlış girdi tekrar deneyin...")
 
 def ram():
     while True:
@@ -147,14 +147,14 @@ def ram():
         print (logo)
 
         print("Options:")
-        colorprint("info", "1-->Extract OS info")
-        colorprint("info", "2-->Read opened notepads")
-        colorprint("info", "3-->Show the process list")
-        colorprint("info", "4-->Take screenshots")
-        colorprint("info", "5-->Read opened CMD's")
-        colorprint("info", "6-->Show Internet Explorer history")
-        colorprint("warn", "9-->Go back to the top menu")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "1-->Ram dump işletim sistemi bul")
+        colorprint("info", "2-->Ram dump notdefteri oku")
+        colorprint("info", "3-->İşlem listesini göster")
+        colorprint("info", "4-->Ram dump screenshot çek")
+        colorprint("info", "5-->Açık olan CMD'leri oku")
+        colorprint("info", "6-->Internet Explorer geçmişini görüntüle")
+        colorprint("warn", "9-->Üst menüye dön")
+        colorprint("fatal", "0-->Çık")
 
         choice = input("Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/ram_analysis" + Style.RESET_ALL + ")\n-->")
 
@@ -175,7 +175,7 @@ def ram():
         elif choice == 0:
             sys.exit()
         else:
-            colorprint("fatal", "Wrong input, please try again...")
+            colorprint("fatal", "Yanlış girdi tekrar deneyin...")
 
 
 def main_menu():
@@ -208,11 +208,11 @@ def main_menu():
                           ██------->CTF Toolkit Project<--------██
         """)
         print("Please make a choice:")
-        colorprint("info", "1-->File Analysis")
-        colorprint("info", "2-->Crypto and Hashing")
-        colorprint("info", "3-->RAM dump analysis")
-        colorprint("info", "4-->Handbook")
-        colorprint("fatal", "0-->Quit")
+        colorprint("info", "1-->Dosya Analizi")
+        colorprint("info", "2-->Kripto ve Şifreleme")
+        colorprint("info", "3-->RAM Dump Analizi")
+        colorprint("info", "4-->Rehber")
+        colorprint("fatal", "0-->Çık")
 
         choice = input("Axion TERMINAL(" + Style.BRIGHT + Fore.CYAN + "/" + Style.RESET_ALL + ")\n-->")
         if choice == 1:
@@ -226,7 +226,7 @@ def main_menu():
         elif choice == 0:
             sys.exit()
         else:
-            colorprint("fatal", "Wrong input, please try again...")
+            colorprint("fatal", "Yanlış girdi tekrar deneyin...")
 
 
 if __name__ == "__main__":
@@ -234,15 +234,15 @@ if __name__ == "__main__":
     auto_path_completer()
 
     config_set('paths', 'path', '')
-    colorprint("info", "\nIf the operations are to be performed on a file, please specify a path to the file, otherwise just press 'c'.")
+    colorprint("info", "\nEğer bir dosya üzerinde işlem yapacaksanız dosya yolu belirtiniz, aksi halde 'c' ye basınız.")
     choice = raw_input("\nAxion TERMINAL("+Style.BRIGHT+Fore.CYAN+"/"+Style.RESET_ALL+")\n-->")
 
     if choice is not 'c':
         config_set('paths', 'path', choice)
-        colorprint("info", "Well, we'll store this path for next operations...\n")
+        colorprint("info", "Dosya yolunu daha sonraki işlemleriniz için saklayacağız...\n")
         
     try:
         main_menu()
     except KeyboardInterrupt:
-        colorprint("fatal", "\nProgram is closing..!")
+        colorprint("fatal", "\nProgram Kapanıyor..!")
         sys.exit()
